@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Indian to Nepali Date Converter</title>
+    <script>
+        function convertDate() {
+            var indianDate = document.getElementById('indianDate').value;
+            var parts = indianDate.split('-');
+            var indianYear = parseInt(parts[0]);
+            var indianMonth = parseInt(parts[1]);
+            var indianDay = parseInt(parts[2]);
+
+            // Simplified conversion logic (for demonstration purposes only).
+            // You may need to improve this logic for more accurate results.
+            var nepaliYear = indianYear + 57;
+            var nepaliMonth = indianMonth + 8;
+            if (nepaliMonth > 12) {
+                nepaliMonth -= 12;
+                nepaliYear++;
+            }
+            var nepaliDay = indianDay;
+
+            var nepaliDate = nepaliYear + '-' + (nepaliMonth < 10 ? '0' : '') + nepaliMonth + '-' + (nepaliDay < 10 ? '0' : '') + nepaliDay;
+            document.getElementById('nepaliDate').innerHTML = 'Nepali Date: ' + nepaliDate;
+        }
+    </script>
+</head>
+<body>
+    <h1>Indian to Nepali Date Converter</h1>
+    <label for="indianDate">Enter Indian Date (yyyy-mm-dd):</label>
+    <input type="text" id="indianDate">
+    <button onclick="convertDate()">Convert</button>
+    <p id="nepaliDate"></p>
+</body>
+</html>
